@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{mathtools}
 \title{CS303 Data Structures Assignment \#1}
+\author{Aleksander Charatonik}
 \begin{document}
 
 \maketitle
@@ -55,5 +56,7 @@ The inner loop is run \(i^2\) times, with i being every number from 0 to n-1. Th
 \(T(n)=\displaystyle\sum_{i=1}^n i^2\), which is simply a geometric series, so \(T(n)=\frac{1}{6}n(n+1)(2n+1)\), or \(O(n)=n^3\).
 \subsection*{3.2}
 This is the same as a simple "i to n" loop, but backwards, which makes no difference, and skipping every other number, which halves the iterations. For loops with odd numbers, we get to 1, and then decrement again, so we take the ceiling of that fraction.\\
-\(T(n)=\lceil\frac{1}{2}n\rceil\), and \(O(n)=n\).
+\(T(n)=\lceil\frac{1}{2}n\rceil\), and \(O(n)=n\).\\
+\subsection*{3.3}
+
 \end{document}

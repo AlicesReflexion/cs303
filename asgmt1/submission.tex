@@ -58,5 +58,7 @@ The inner loop is run \(i^2\) times, with i being every number from 0 to n-1. Th
 This is the same as a simple "i to n" loop, but backwards, which makes no difference, and skipping every other number, which halves the iterations. For loops with odd numbers, we get to 1, and then decrement again, so we take the ceiling of that fraction.\\
 \(T(n)=\lceil\frac{1}{2}n\rceil\), and \(O(n)=n\).\\
 \subsection*{3.3}
-
+This is similar to \ref{3.1}, except instead of subcracting, we're dividing. So, instead of dividing i, we use the logarithm. We have to add one, because we continue to divide after getting to 2, and we take the floor because numbers that aren't powers of two will fall just faster than the power of two above them.\\
+\(T(n)=\lfloor\log 1+1\rfloor+\lfloor\log 2+1\rfloor+\lfloor\log 3+1\rfloor\dots\lfloor\log n+1\rfloor\).\\
+\(T(n)=\displaystyle\sum_{i=1}^n \lfloor\log i+1\rfloor\)
 \end{document}

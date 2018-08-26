@@ -1,10 +1,11 @@
 \documentclass[12pt]{article}
 \usepackage{mathtools}
+\title{CS303 Data Structures Assignment \#1}
 \begin{document}
 
-\section*{Assignment \#1}
+\maketitle
 
-\subsection*{1.}
+\section*{1.}
 {\small
 Choose an arbitrary \(n_0\), eg. \(n_0=1\).
 
@@ -16,5 +17,36 @@ Choose an arbitrary \(n_0\), eg. \(n_0=1\).
 
 \(C=6, n_0=1\)\\
 }
-For all \(n\), where \(n>1\), \(6n^3>n^3-5n^2+20n-10\).
+For all \(n\), where \(n>1\), \(6n^3>n^3-5n^2+20n-10\).\\
+
+\section*{2.}
+See attached \texttt{comparegrowth.cpp}. Output:\\
+\texttt{
+y1: 10\\
+y2: 2\\
+y1: 1010\\
+y2: 502\\
+y1: 2010\\
+y2: 2002\\
+y1: 3010\\
+y2: 4502\\
+y1: 4010\\
+y2: 8002\\
+y1: 5010\\
+y2: 12502\\
+y1: 6010\\
+y2: 18002\\
+y1: 7010\\
+y2: 24502\\
+y1: 8010\\
+y2: 32002\\
+y1: 9010\\
+y2: 40502\\
+y1: 10010\\
+y2: 50002\\
+}
+
+The results here are to be expected. y1 is initially larger because of the constant 100 rather than 5, but y2 quickly overtakes it because of how much faster \(n^2\) grows than \(n\). This would be true regardless of what constant y1 used. If \(y1=10000n +20\), y2 would still outgrow it.\\
+
+
 \end{document}

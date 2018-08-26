@@ -60,5 +60,6 @@ This is the same as a simple "i to n" loop, but backwards, which makes no differ
 \subsection*{3.3}
 This is similar to \ref{3.1}, except instead of subcracting, we're dividing. So, instead of dividing i, we use the logarithm. We have to add one, because we continue to divide after getting to 2, and we take the floor because numbers that aren't powers of two will fall just faster than the power of two above them.\\
 \(T(n)=\lfloor\log 1+1\rfloor+\lfloor\log 2+1\rfloor+\lfloor\log 3+1\rfloor\dots\lfloor\log n+1\rfloor\).\\
-\(T(n)=\displaystyle\sum_{i=1}^n \lfloor\log i+1\rfloor\)
+\(T(n)=\displaystyle\sum_{i=1}^n \lfloor\log i+1\rfloor\)\\
+This can be imagined as \(1+2+2+3+3+3+3+4+4+4+4+4+4+4+4+5\dots\), where the number jumps up every time \(\log i\) returns a whole number. Every power of two. So \(T(n)=\displaystyle\sum_{i=1}^n i*2^{i-1}\) and \(T(n)=n2^n-2^n+1\). \(O(n)=n2^n\).\\
 \end{document}

@@ -1,5 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
 \title{CS303 Data Structures Assignment \#1}
 \author{Aleksander Charatonik}
 \begin{document}
@@ -62,4 +64,17 @@ This is similar to \ref{3.1}, except instead of subcracting, we're dividing. So,
 \(T(n)=\lfloor\log 1+1\rfloor+\lfloor\log 2+1\rfloor+\lfloor\log 3+1\rfloor\dots\lfloor\log n+1\rfloor\).\\
 \(T(n)=\displaystyle\sum_{i=1}^n \lfloor\log i+1\rfloor\)\\
 This can be imagined as \(1+2+2+3+3+3+3+4+4+4+4+4+4+4+4+5\dots\), where the number jumps up every time \(\log i\) returns a whole number. Every power of two. So \(T(n)=\displaystyle\sum_{i=1}^n i*2^{i-1}\) and \(T(n)=n2^n-2^n+1\). \(O(n)=n2^n\).\\
+
+\section*{4.}
+pop\_back() removes the last element in the vector. So we'd remove the element \texttt{5} at location \texttt{4} in that vector, resulting in an array like this:
+
+\begin{tikzpicture}
+  [font=\ttfamily,
+array/.style={matrix of nodes,nodes={draw, minimum size=7mm, fill=green!30},column sep=-\pgflinewidth, row sep=0.5mm, nodes in empty cells,
+row 1/.style={nodes={draw=none, fill=none, minimum size=5mm}}}]
+  \matrix[array] (array) {
+    0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\
+    1 & 2 & 3 & 4 & null & null & null & null & null & null \\};
+\end{tikzpicture}\\
+with the\_data pointing to that array for both v1 and v2.
 \end{document}

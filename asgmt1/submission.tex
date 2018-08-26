@@ -48,5 +48,10 @@ y2: 50002\\
 
 The results here are to be expected. y1 is initially larger because of the constant 100 rather than 5, but y2 quickly overtakes it because of how much faster \(n^2\) grows than \(n\). This would be true regardless of what constant y1 used. If \(y1=10000n +20\), y2 would still outgrow it.\\
 
+\section*{3.}
+\subsection*{3.1}
+The inner loop is run \(i^2\) times, with i being every number from 0 to n-1. Therefore, we get the sum:
+\(T(n)=1^2+2^2+3^2\dots+n^2\) or\\
+\(T(n)=\displaystyle\sum_{i=1}^n i^2\), which is simply a geometric series, so \(T(n)=\frac{1}{6}n(n+1)(2n+1)\).\\
 
 \end{document}

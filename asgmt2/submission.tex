@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage[left=2cm, right=2cm, top=1cm, bottom=2cm]{geometry}
+\title{CS303 Data Structures Assignment \#2\\
+\large attachments and source available at https://github.com/alexskc/cs303}
+\author{Aleksander Charatonik}
+\begin{document}
+
+\maketitle
+
+\section{}
+Create a vector of doubles, push two elements to the back, add them together, and print the result, which ends up looking like\\
+\texttt{
+  Result is 8.456
+}
+\section{}
+A shallow copy simply creates new pointers to the same elements. A deep copy creates new elements, and new pointers to those elements.
+\section{}
+\subsection*{a}
+Each node in a single-linked list has a pointer to the next node.
+\subsection*{b}
+In a double linked list each node has a pointer to the next node and the previous node.
+\subsection*{c}
+To remove an item from a single-linked list you need a pointer to the previous item, so that you can change the item it points to.
+\subsection*{d}
+To remove an item from a double-linked list you need a pointer to the element you want to remove. From there, you can get pointers to the previous and next elements, and change those as necessary.
+\section{}
+\subsection*{a}
+This removes the node Sharon from the list. The next of Harry is changed to Sam, and the previous of Sam is changed to Harry. Nobody is pointing to Snaron anymore, so presumably, that node can be deleted.
+\subsection*{b}
+This inserts a new head at the start of the list, Tamika. Tamika's next is the original head, and the original head's previous is the new head, Tamika. Everything works.
+\section{}
+\subsection*{a}
+\begin{verbatim}
+  Node* node_ptr = head;
+  head = new Node("Bill");
+  head->next = node_ptr;
+\end{verbatim}
+\subsection*{b}
+\begin{verbatim}
+  while(node_ptr->next != "Sam") {
+    node_ptr = node_ptr->next;
+  }
+  newNode = new Node("Sue");
+  newNode->node_ptr->next;
+  node_ptr->next = newNode;
+\end{verbatim}
+\subsection*{c}
+\begin{verbatim}
+  node_ptr = head;
+  head = head->next;
+  delete node_ptr;
+  node_ptr = NULL;
+\end{verbatim}
+\subsection*{d}
+\begin{verbatim}
+  node_ptr = head;
+  while(node_ptr->next != tail) {
+    node_ptr = node_ptr->next;
+  }
+  node_ptr->next = NULL;
+  delete head;
+  head = node_ptr;
+\end{verbatim}
+\end{document}

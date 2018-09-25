@@ -8,5 +8,16 @@
 \maketitle
 
 \section{}
+A \texttt{const\_iterator} is useful in preventing modifying the referenced value. It's simply about const correctness, and informs what the programmer should be able to do. \texttt{iterator}, by contrast, has read-write access, and is useful in scenarios where that is necessary.
+
+\section{}
+\subsection*{a}
+An \texttt{iterator}. Regardless of whether you have an array-based structure, or a linked-list structure, you need to be able to change either the value of the next item, or the pointer to the next item.
+\subsection*{b}
+\texttt{iterator} as well. You are modifying data, so you cannot be read-only.
+\subsection*{c}
+For this one, a \texttt{cost\_iterator} will suffice. We are not changing any data.
+\subsection*{d}
+\texttt{iterator} as well. We can avoid changing the element pointed to if we're using a linked-list structure, but we still need to change the element before it to point to the new item. And of course, in an array-based structure, we're going to be moving elements around in the array to make space for the new element.
 
 \end{document}

@@ -23,4 +23,112 @@ For this one, a \texttt{cost\_iterator} will suffice. We are not changing any da
 \section{}
 See attached \texttt{reverser.cpp}
 
+\section{}
+\begin{tabular}{| l | l | l |}
+  \hline
+  \textbf{Expression} & \textbf{Action} & \textbf{Stack} \\ \hline
+  \begin{tabular}{c c c c c c c c c c c}
+    10 & 2 & * & 5 & / & 6 & 2 & 5 & * & + & -\\
+    \(\uparrow\)
+  \end{tabular} & Push 10 & 
+  \begin{tabular}{|c|}
+    \hline
+    10\\ \hline
+  \end{tabular} \\ \hline
+    \begin{tabular}{c c c c c c c c c c c}
+    10 & 2 & * & 5 & / & 6 & 2 & 5 & * & + & -\\
+       & \(\uparrow\)\\
+  \end{tabular} & Push 2 & 
+  \begin{tabular}{|c|}
+    \hline
+    2\\ \hline
+    10\\ \hline
+  \end{tabular} \\ \hline
+  \begin{tabular}{c c c c c c c c c c c}
+    10 & 2 & * & 5 & / & 6 & 2 & 5 & * & + & -\\
+       &   & \(\uparrow\)\\
+  \end{tabular} & Eval * & 
+  \begin{tabular}{|c|}
+    \hline
+    20\\ \hline
+  \end{tabular} \\ \hline
+  \begin{tabular}{c c c c c c c c c c c}
+    10 & 2 & * & 5 & / & 6 & 2 & 5 & * & + & -\\
+       &   &   & \(\uparrow\)\\
+  \end{tabular} & Push 5 & 
+  \begin{tabular}{|c|}
+    \hline
+    5\\ \hline
+    20\\ \hline
+  \end{tabular} \\ \hline
+  \begin{tabular}{c c c c c c c c c c c}
+    10 & 2 & * & 5 & / & 6 & 2 & 5 & * & + & -\\
+       &   &   &   & \(\uparrow\)\\
+  \end{tabular} & Eval / & 
+  \begin{tabular}{|c|}
+    \hline
+    4\\ \hline
+  \end{tabular} \\ \hline
+  \begin{tabular}{c c c c c c c c c c c}
+    10 & 2 & * & 5 & / & 6 & 2 & 5 & * & + & -\\
+       &   &   &   &   & \(\uparrow\)\\
+  \end{tabular} & Push 6 & 
+  \begin{tabular}{|c|}
+    \hline
+    6\\ \hline
+    4\\ \hline
+  \end{tabular} \\ \hline
+  \begin{tabular}{c c c c c c c c c c c}
+    10 & 2 & * & 5 & / & 6 & 2 & 5 & * & + & -\\
+       &   &   &   &   &   & \(\uparrow\)\\
+  \end{tabular} & Push 2 & 
+  \begin{tabular}{|c|}
+    \hline
+    2\\ \hline
+    6\\ \hline
+    4\\ \hline
+  \end{tabular} \\ \hline
+  \begin{tabular}{c c c c c c c c c c c}
+    10 & 2 & * & 5 & / & 6 & 2 & 5 & * & + & -\\
+       &   &   &   &   &   &   & \(\uparrow\)\\
+  \end{tabular} & Push 5 & 
+  \begin{tabular}{|c|}
+    \hline
+    5\\ \hline
+    2\\ \hline
+    6\\ \hline
+    4\\ \hline
+  \end{tabular} \\ \hline
+  \begin{tabular}{c c c c c c c c c c c}
+    10 & 2 & * & 5 & / & 6 & 2 & 5 & * & + & -\\
+       &   &   &   &   &   &   &   & \(\uparrow\)\\
+  \end{tabular} & Eval * & 
+  \begin{tabular}{|c|}
+    \hline
+    10\\ \hline
+    6\\ \hline
+    4\\ \hline
+  \end{tabular} \\ \hline
+  \begin{tabular}{c c c c c c c c c c c}
+    10 & 2 & * & 5 & / & 6 & 2 & 5 & * & + & -\\
+       &   &   &   &   &   &   &   &   & \(\uparrow\)\\ 
+  \end{tabular} & Eval + & 
+  \begin{tabular}{|c|}
+    \hline
+    16\\ \hline
+    4\\ \hline
+  \end{tabular} \\ \hline
+  \begin{tabular}{c c c c c c c c c c c}
+    10 & 2 & * & 5 & / & 6 & 2 & 5 & * & + & -\\
+       &   &   &   &   &   &   &   &   &   & \(\uparrow\)\\
+  \end{tabular} & Eval - & 
+  \begin{tabular}{|c|}
+    \hline
+    -12\\ \hline
+  \end{tabular} \\ \hline
+
+
+
+\end{tabular}
+
 \end{document}

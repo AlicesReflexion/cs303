@@ -1,5 +1,7 @@
 \documentclass[10pt]{article}
 \usepackage{mathtools}
+\usepackage{pgf-umlcd}
+\usepackage{colortbl}
 \usepackage{tikz}
 \usepackage{verbatim}
 \usepackage[left=2cm, right=2cm, top=1cm, bottom=2cm]{geometry}
@@ -55,8 +57,113 @@ As we spend more time thinking about this, the problem becomes increasingly appa
     Two ways immediately come to mind as to how to store this.
     \begin{itemize}
       \item Store an array of users, and give each user "current location" and "desired location," alongside an array of elevators, each with a "current location" and "direction."
-      \item Store an array the size of the number of floors. Each cell represents a floor, and each floor contains an array of users. A second array stores an array of elevators. Each elevator, in turn, stores a direction and an array of users.
+      \item Store an array the size of the number of floors. Each cell represents a floor, and each floor contains an array of users. A second array stores elevators. Each elevator, in turn, stores a direction and an array of users. Users are a single integer, which represents their desired floor.
     \end{itemize}
-    I prefer the 2nd method. It is (subjectively) easier to visualize, and also means there is no need to traverse the entire array of users if we want to figure out who is above/below the elevator. Below is a UML diagram:
+    I prefer the 2nd method. It is (subjectively) easier to visualize, and also means there is no need to traverse the entire array of users if we want to figure out who is above/below the elevator. Below is a visualization, followed by a UML diagram:\\
+    \begin{tabular}{|>{\columncolor[gray]{0.8}}c | r|}
+      \hline
+         & Users\\
+      \hline
+      20 & \\
+      \hline
+      19 & \\
+      \hline
+      18 & \\
+      \hline
+      17 & \begin{tabular}{|c|}
+        3
+      \end{tabular}\\
+      \hline
+      16 & \\
+      \hline
+      15 & \\
+      \hline
+      14 & \\
+      \hline
+      13 & \\
+      \hline
+      12 & \\
+      \hline
+      11 & \begin{tabular}{| c | c | c | c |}
+        15 & 17 & 20 & 7
+      \end{tabular}\\
+      \hline
+      10 & \\
+      \hline
+      9 & \\
+      \hline
+      8 & \\
+      \hline
+      7 & \\
+      \hline
+      6 & \\
+      \hline
+      5 & \\
+      \hline
+      4 & \\
+      \hline
+      3 & \\
+      \hline
+      2 & \\
+      \hline
+      1 & \\
+      \hline
+      0 & \\
+      \hline
+    \end{tabular}
+\begin{tabular}{|>{\columncolor[gray]{0.8}}c | l|}
+      \hline
+         & Elevators\\
+      \hline
+      20 & \begin{tabular}{|>{\columncolor{green}}c | c | c | >{\columncolor{green}}c|}
+        \(\downarrow\) & NULL &  & NULL\\
+      \end{tabular}\\
+      \hline
+      19 & \\
+      \hline
+      18 & \\
+      \hline
+      17 & \\
+      \hline
+      16 & \\
+      \hline
+      15 & \\
+      \hline
+      14 & \\
+      \hline
+      13 & \\
+      \hline
+      12 & \\
+      \hline
+      11 & \\
+      \hline
+      10 & \\
+      \hline
+      9 & \begin{tabular}{|>{\columncolor{green}}c | c | c|}
+        \(\uparrow\) & 20 & 20
+      \end{tabular}\\
+      \hline
+      8 & \\
+      \hline
+      7 & \\
+      \hline
+      6 & \\
+      \hline
+      5 & \\
+      \hline
+      4 & \\
+      \hline
+      3 & \begin{tabular}{|>{\columncolor{green}}c|}
+        NULL
+      \end{tabular}\\
+      \hline
+      2 & \\
+      \hline
+      1 & \\
+      \hline
+      0 & \\
+      \hline
+    \end{tabular}
+
 \end{section}
 \end{document}

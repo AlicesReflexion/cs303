@@ -179,16 +179,16 @@ As we spend more time thinking about this, the problem becomes increasingly appa
   \end{class}
   \unidirectionalAssociation{UserFloors}{floors}{1}{vector$<$vector$<$int$>>$}
 
-  \begin{class}{vector$<$Elevator$>$}{0,-5}
+  \begin{class}{vector$<$Elevator$>$}{0,-3}
   \end{class}
 
-  \begin{class}{Elevator}{7, -5}
+  \begin{class}{Elevator}{7, -3}
     \attribute{- location}
 
     \operation{+ addUser(user : int)}
     \operation{+ removeUser(user : int)}
   \end{class}
-  \begin{class}{vector$<$int$>$}{14, -5}
+  \begin{class}{vector$<$int$>$}{14, -3}
   \end{class}
   \unidirectionalAssociation{vector$<$Elevator$>$}{elevators}{*}{Elevator}
   \unidirectionalAssociation{Elevator}{users}{*}{vector$<$int$>$}

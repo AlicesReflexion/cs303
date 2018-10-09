@@ -18,3 +18,7 @@ int elevator::getCurrentLocation() {
 elevator::DIRECTION elevator::getCurrentDirection() {
   return currentDirection;
 }
+
+std::vector<int> elevator::getCurrentUsers() {
+  return users;
+}

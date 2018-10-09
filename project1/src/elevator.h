@@ -16,6 +16,7 @@ class elevator{
     DIRECTION getCurrentDirection();
     void addUser(int requestedLocation);
     void removeUsers();
+    std::vector<int> getCurrentUsers();
 
   private:
     int location;

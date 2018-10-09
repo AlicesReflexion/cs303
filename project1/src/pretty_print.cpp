@@ -9,7 +9,7 @@
 std::string printElevator(std::vector<elevator> elevators, int row) {
   std::string elevatorText = "";
   for(int i = 0; i < elevators.size(); i++){
-      if (elevators[i].getCurrentLocation() == row+1)
+      if (elevators[i].getCurrentLocation() == row+1) {
         switch(elevators[i].getCurrentDirection()){
           case elevator::DIRECTION::STOP:
             elevatorText += "X";
@@ -21,6 +21,11 @@ std::string printElevator(std::vector<elevator> elevators, int row) {
               elevatorText += "V";
               break;
         }
+        for (int j = 0; j < elevators[i].getCurrentUsers().size(); j++) {
+          elevatorText = elevatorText + " " + std::to_string(elevators[i].getCurrentUsers()[j]);
+        }
+        elevatorText += "|";
+      }
     }
   return elevatorText;
 }

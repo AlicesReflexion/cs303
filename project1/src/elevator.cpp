@@ -10,3 +10,11 @@ void elevator::removeUsers() {
       users.erase(users.begin()+i);
   }
 }
+
+int elevator::getCurrentLocation() {
+  return location;
+}
+
+int elevator::getCurrentDirection() {
+  return direction;
+}

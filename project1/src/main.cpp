@@ -39,15 +39,31 @@ void prettyPrint(floors floors, std::vector<elevator> elevators) {
   std::cout << "+" << std::string(floorLength, '-') << "+" << std::string(maxWidthUsers, '-') << "+" << std::endl;
   
   for(int i = floors.getSize()-1; i > -1; i--) {
+    std::string elevatorText = "";
     for(int j = 0; j < floors.listUsers(i).size(); j++) {
       userRow = userRow + std::to_string(floors.listUsers(i)[j]) + " ";
     }
     if (userRow != "")
       userRow.pop_back();
+    for(int k = 0; k < elevators.size(); k++){
+      if (elevators[k].getCurrentLocation() == i+1)
+        switch(elevators[k].getCurrentDirection()){
+          case 0:
+            elevatorText += "X";
+            break;
+          case 1:
+              elevatorText += "^";
+              break;
+          case 2:
+              elevatorText += "V";
+              break;
+        }
+    }
     std::cout << "|"
       << i+1 
       << std::string(floorLength - std::to_string(i+1).length(), ' ')
-      << "|" << userRow << std::string(maxWidthUsers - userRow.length(), ' ') << "|" << std::endl;
+      << "|" << userRow << std::string(maxWidthUsers - userRow.length(), ' ') << "|" << 
+      elevatorText << std::endl;
     userRow = "";
   }
   std::cout << "+" << std::string(floorLength, '-') << "+" << std::string(maxWidthUsers, '-') << "+" << std::endl;

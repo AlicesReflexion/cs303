@@ -6,10 +6,13 @@ class elevator{
 
   public:
     //A capacity of 0 indicates no limit
-    elevator(int location, int capacity) {
+    elevator(int initLocation, int capacity) {
       //0 => not moving, 1 => up, 2 => down.
       direction = 0;
+      location = initLocation;
     }
+    int getCurrentLocation();
+    int getCurrentDirection();
     void addUser(int requestedLocation);
     void removeUsers();
 

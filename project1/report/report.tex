@@ -195,4 +195,21 @@ As we spend more time thinking about this, the problem becomes increasingly appa
   \unidirectionalAssociation{Elevator}{users}{*}{vector$<$int$>$}
 \end{tikzpicture}
 \end{section}
+\begin{section}{Interface}
+When designing the interface, we should keep several goals in mind:
+  \begin{itemize}
+    \item The user should be allowed to interact with the simulation interactively.
+    \item It should be clear to the user what is happening at any given time
+    \item That said, if the user wants to disable pretty-printing, they should also be allowed to.
+    \item It should also be automatable and testable
+  \end{itemize}
+  The solution here is... Command line parameters! Going over our cases:
+  \begin{itemize}
+    \item If the user is running the program without any parameters, eg \texttt{./elevator}, then we give them the default interactive pretty-printed mode.
+    \item If the user passes in \texttt{--no-pretty}, then the app skips printing out the elevator every turn.
+    \item The user can pass in a parameter telling exactly what happpens in every turn, and skip all interactivity. The pretty printer will still show the state of the elevator every turn. This will look like \texttt{./elevator --sim="19 1:5:6:6 18-7:2-3:5-13 2-3 4-5:4-5"}. The first number indicates the number of floors. The next numbers, seperated by colons, indicate the starting positions of each elevator. The number pairs afterwards \texttt{18-7} indicate users arriving at floors and requesting a floor. A space denotes the end of a turn.
+    \item And finally, the user can pass in both \texttt{--sim} and \texttt{--no-pretty}, which will only print results such as longest/shortest waiting time, average wait time, etc.
+  \end{itemize}
+  The pretty-printing should look similar to the visualization shown above, albeit in ASCII.
+\end{section}
 \end{document}

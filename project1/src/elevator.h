@@ -4,21 +4,22 @@
 
 class elevator{
 
+  
   public:
     //A capacity of 0 indicates no limit
     elevator(int initLocation, int capacity) {
-      //0 => not moving, 1 => up, 2 => down.
-      direction = 0;
+      currentDirection = STOP;
       location = initLocation;
     }
+    enum DIRECTION{STOP = 0, UP = 1, DOWN = 2};
     int getCurrentLocation();
-    int getCurrentDirection();
+    DIRECTION getCurrentDirection();
     void addUser(int requestedLocation);
     void removeUsers();
 
   private:
     int location;
-    int direction;
+    DIRECTION currentDirection;
     std::vector<int> users;
 };
 

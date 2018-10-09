@@ -15,6 +15,6 @@ int elevator::getCurrentLocation() {
   return location;
 }
 
-int elevator::getCurrentDirection() {
-  return direction;
+elevator::DIRECTION elevator::getCurrentDirection() {
+  return currentDirection;
 }

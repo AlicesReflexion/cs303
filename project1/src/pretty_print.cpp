@@ -11,13 +11,13 @@ std::string printElevator(std::vector<elevator> elevators, int row) {
   for(int i = 0; i < elevators.size(); i++){
       if (elevators[i].getCurrentLocation() == row+1)
         switch(elevators[i].getCurrentDirection()){
-          case 0:
+          case elevator::DIRECTION::STOP:
             elevatorText += "X";
             break;
-          case 1:
+          case elevator::DIRECTION::UP:
               elevatorText += "^";
               break;
-          case 2:
+          case elevator::DIRECTION::DOWN:
               elevatorText += "V";
               break;
         }

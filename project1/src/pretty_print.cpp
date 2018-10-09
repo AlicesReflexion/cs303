@@ -58,16 +58,29 @@ void prettyPrint(floors floors, std::vector<elevator> elevators) {
       columnWidthUsers = printUser(floors, i).length();
   }
 
+  //The same for the elevator column.
+  for(int i = 0; i < floors.getSize(); i++) {
+    if(printElevator(elevators, i).length() > columnWidthElevators)
+      columnWidthElevators = printElevator(elevators, i).length();
+  }
+
   //The top row
-  std::cout << "+" << std::string(columnWidthFloors, '-') << "+" << std::string(columnWidthUsers, '-') << "+" << std::endl;
+  std::cout << 
+    "+" << std::string(columnWidthFloors, '-') << 
+    "+" << std::string(columnWidthUsers, '-') << 
+    "+" << std::string(columnWidthElevators, '-') << "+" << std::endl;
   //The data
   for(int i = floors.getSize()-1; i > -1; i--) {
         
     std::cout << 
       "|" << printSpaces(std::to_string(i+1), columnWidthFloors) <<
       "|" << printSpaces(printUser(floors, i), columnWidthUsers) << 
-      "|" << printElevator(elevators, i)<< std::endl;
+      "|" << printSpaces(printElevator(elevators, i), columnWidthElevators) <<
+      "|" << std::endl;
   }
   //The bottom row
-  std::cout << "+" << std::string(columnWidthFloors, '-') << "+" << std::string(columnWidthUsers, '-') << "+" << std::endl;
+  std::cout << 
+    "+" << std::string(columnWidthFloors, '-') << 
+    "+" << std::string(columnWidthUsers, '-') << 
+    "+" << std::string(columnWidthElevators, '-') << "+" << std::endl;
 }

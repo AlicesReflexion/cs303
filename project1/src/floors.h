@@ -22,7 +22,7 @@ class floors {
   private:
     std::vector<int>* users;
     //We cannot get the size of C-arrays if we are using pointers.
-    //And we cannot use std::Array with a variable size
+    //And we cannot use std::array with a variable size
     //So storing this is probably the best way to go.
     int size;
 };

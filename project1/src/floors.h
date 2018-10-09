@@ -7,6 +7,9 @@ class floors {
     floors(int size) {
       users = new std::vector<int>[size];
     }
+    ~floors() {
+      delete users;
+    }
 
     int addUser(int location, int requestedLocation);
     void removeUpUsers();

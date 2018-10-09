@@ -8,6 +8,9 @@ int main() {
   floors floors(20);
   std::vector<elevator> elevators;
   elevators.push_back(elevator(12, 0));
+  elevators.push_back(elevator(3, 0));
+  elevators.push_back(elevator(1,0));
+  elevators.push_back(elevator(20,0));
   floors.addUser(12, 20);
   floors.addUser(12, 7);
   floors.addUser(12, 19);

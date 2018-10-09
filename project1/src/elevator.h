@@ -1,19 +1,22 @@
 #include <vector>
+#ifndef ELEVATOR_H
+#define ELEVATOR_H
 
-class Elevator{
+class elevator{
 
   public:
-
-    Elevator(int location);
-
-    void addUser(int requestedLocation){
-    
+    //A capacity of 0 indicates no limit
+    elevator(int location, int capacity) {
+      //0 => not moving, 1 => up, 2 => down.
+      location = 0;
     }
-
-    void removeUsers(int requestedLocation);
+    void addUser(int requestedLocation);
+    void removeUsers();
 
   private:
     int location;
     int direction;
     std::vector<int> users;
 };
+
+#endif

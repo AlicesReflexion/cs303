@@ -1,6 +1,8 @@
 #include <vector>
 #include <array>
 
+#ifndef FLOORS_H
+#define FLOORS_H
 class floors {
 
   public:
@@ -17,3 +19,5 @@ class floors {
   private:
     std::vector<int>* users;
 };
+
+#endif

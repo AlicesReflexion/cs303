@@ -2,11 +2,11 @@
 #include <vector>
 
 void floors::addUser(int location, int requestedLocation) {
-  users[location].push_back(requestedLocation);
+  users[location-1].push_back(requestedLocation);
 }
 
-int floors::size() {
-  return 15;
+int floors::getSize() {
+  return size;
 }
 
 std::vector<int> floors::listUpUsers(int location) {
@@ -27,6 +27,10 @@ std::vector<int> floors::listDownUsers(int location) {
       downUsers.push_back(users[location][i]);
   }
   return downUsers;
+}
+
+std::vector<int> floors::listUsers(int location) {
+  return users[location];
 }
 
 void floors::removeUpUsers(int location) {

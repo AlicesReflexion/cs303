@@ -5,6 +5,10 @@ void floors::addUser(int location, int requestedLocation) {
   users[location].push_back(requestedLocation);
 }
 
+int floors::size() {
+  return 15;
+}
+
 std::vector<int> floors::listUpUsers(int location) {
   std::vector<int> upUsers;
   // Look at every item on this floor

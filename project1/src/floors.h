@@ -13,6 +13,7 @@ class floors {
     void addUser(int location, int requestedLocation);
     void removeUpUsers(int location);
     void removeDownUsers(int location);
+    int size();
     std::vector<int> listUpUsers(int location);
     std::vector<int> listDownUsers(int location);
 

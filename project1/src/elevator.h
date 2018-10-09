@@ -8,7 +8,7 @@ class elevator{
     //A capacity of 0 indicates no limit
     elevator(int location, int capacity) {
       //0 => not moving, 1 => up, 2 => down.
-      location = 0;
+      direction = 0;
     }
     void addUser(int requestedLocation);
     void removeUsers();

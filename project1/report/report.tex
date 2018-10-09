@@ -172,8 +172,10 @@ As we spend more time thinking about this, the problem becomes increasingly appa
 \begin{tikzpicture}
   \begin{class}{UserFloors}{0,0}
     \operation{+ addUser(user : int)}
-    \operation{+ removeUpUsers()}
-    \operation{+ removeDownUsers()}
+    \operation{+ removeUpUsers(location : int)}
+    \operation{+ removeDownUsers(location : int)}
+    \operation{+ listUpUsers(location : int)}
+    \operation{+ listDownUsers(location : int)}
   \end{class}
   \begin{class}{vector$<$vector$<$int$>>$}{7,0}
   \end{class}

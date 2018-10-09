@@ -3,6 +3,7 @@
 #include <iostream>
 
 void prettyPrint(floors floors, std::vector<elevator> elevators);
+void moveUsersToElevators(floors floors, std::vector<elevator> elevators);
 
 int main() {
   floors floors(20);
@@ -23,5 +24,6 @@ int main() {
   floors.addUser(1,3);
   floors.addUser(20,2);
   prettyPrint(floors, elevators);
+  moveUsersToElevators(floors, elevators);
   return 0;
 }

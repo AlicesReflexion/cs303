@@ -5,7 +5,8 @@
 \usepackage{tikz}
 \usepackage{verbatim}
 \usepackage[left=2cm, right=2cm, top=1cm, bottom=2cm]{geometry}
-\title {Computer Science 303: Data Structures Project \#1C}
+\title {Computer Science 303: Data Structures Project \#1C\\
+\large attachments and source available at https://github.com/alexskc/cs303}
 \author{Aleksander Charatonik}
 \begin{document}
 \maketitle
@@ -54,12 +55,13 @@ As we spend more time thinking about this, the problem becomes increasingly appa
       \item The location of each elevator.
       \item The direction of each elevator.
     \end{itemize}
-    Two ways immediately come to mind as to how to store this.
+    Multiple ways of storing these come to mind.
     \begin{itemize}
       \item Store an array of users, and give each user "current location" and "desired location," alongside an array of elevators, each with a "current location" and "direction."
       \item Store an array the size of the number of floors. Each cell represents a floor, and each floor contains an array of users. A second array stores elevators. Each elevator, in turn, stores a direction and an array of users. Users are a single integer, which represents their desired floor.
+      \item A combination of the two. For example, using a floor array for users, but giving a location property to elevators.
     \end{itemize}
-    I prefer the 2nd method. It is (subjectively) easier to visualize, and also means there is no need to traverse the entire array of users if we want to figure out who is above/below the elevator. Below is a visualization, followed by a UML diagram:\\
+    I prefer the 3rd method. The 2nd is (subjectively) easiest to visualize, and also means there is no need to traverse the entire array of users if we want to figure out who is above/below the elevator. However, moving elevators becomes expensive if we have to keep copying them from one cell to another to move them. Below is a visualization, followed by a UML diagram:\\
     \begin{tabular}{|>{\columncolor[gray]{0.8}}c | r|}
       \hline
          & Users\\
@@ -164,6 +166,32 @@ As we spend more time thinking about this, the problem becomes increasingly appa
       0 & \\
       \hline
     \end{tabular}
+\\
+\\
+\\
+\begin{tikzpicture}
+  \begin{class}{UserFloors}{0,0}
+    \operation{+ addUser(user : int)}
+    \operation{+ removeUpUsers()}
+    \operation{+ removeDownUsers()}
+  \end{class}
+  \begin{class}{vector$<$vector$<$int$>>$}{7,0}
+  \end{class}
+  \unidirectionalAssociation{UserFloors}{floors}{1}{vector$<$vector$<$int$>>$}
 
+  \begin{class}{vector$<$Elevator$>$}{0,-5}
+  \end{class}
+
+  \begin{class}{Elevator}{7, -5}
+    \attribute{- location}
+
+    \operation{+ addUser(user : int)}
+    \operation{+ removeUser(user : int)}
+  \end{class}
+  \begin{class}{vector$<$int$>$}{14, -5}
+  \end{class}
+  \unidirectionalAssociation{vector$<$Elevator$>$}{elevators}{*}{Elevator}
+  \unidirectionalAssociation{Elevator}{users}{*}{vector$<$int$>$}
+\end{tikzpicture}
 \end{section}
 \end{document}

@@ -12,6 +12,10 @@ int main() {
   elevators.push_back(elevator(3, 0));
   elevators.push_back(elevator(1,0));
   elevators.push_back(elevator(20,0));
+  elevators.push_back(elevator(12,0));
+  elevators[0].addUser(3);
+  elevators[4].addUser(5);
+  elevators[4].addUser(2);
   floors.addUser(12, 20);
   floors.addUser(12, 7);
   floors.addUser(12, 19);

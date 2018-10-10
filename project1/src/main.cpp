@@ -5,29 +5,19 @@
 void prettyPrint(floors floors, std::vector<elevator> elevators);
 void moveUsersToElevators(floors floors, std::vector<elevator> elevators);
 
-int main() {
+int main(int argc, char **argv) {
+  bool doPrint = true;
+  bool simulate = false;
+  for (int i = 1; i < argc; i++){
+    if ((std::string(argv[i]))=="--no-pretty")
+      doPrint = false;
+    if ((std::string(argv[i])).find("--sim") != std::string::npos)
+      simulate = true;
+  }
+
   floors floors(20);
   std::vector<elevator> elevators;
-  elevators.push_back(elevator(12, 0));
-  elevators.push_back(elevator(3, 0));
-  elevators.push_back(elevator(1,0));
-  elevators.push_back(elevator(20,0));
-  elevators.push_back(elevator(12,0));
-  elevators[0].addUser(3);
-  elevators[4].addUser(5);
-  elevators[4].addUser(2);
-  floors.addUser(12, 20);
-  floors.addUser(12, 7);
-  floors.addUser(12, 19);
-  floors.addUser(7, 9);
-  floors.addUser(19, 1);
-  floors.addUser(19, 1);
-  floors.addUser(19, 1);
-  floors.addUser(19, 1);
-  floors.addUser(19, 1);
-  floors.addUser(1,3);
-  floors.addUser(20,2);
-  prettyPrint(floors, elevators);
-  moveUsersToElevators(floors, elevators);
+  if (doPrint)
+    prettyPrint(floors, elevators);
   return 0;
 }

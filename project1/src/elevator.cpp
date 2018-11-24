@@ -22,3 +22,16 @@ elevator::DIRECTION elevator::getCurrentDirection() {
 std::vector<int> elevator::getCurrentUsers() {
   return users;
 }
+
+void elevator::moveElevator() {
+  switch(currentDirection) {
+    case elevator::DIRECTION::UP:
+      location = location++;
+      break;
+    case elevator::DIRECTION::STOP:
+      break;
+    case elevator::DIRECTION::DOWN:
+      location = location--;
+      break;
+  }
+}

@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+\usepackage[left=2cm, right=2cm, top=1cm, bottom=2cm]{geometry}
+\usepackage{forest}
+\title{CS303 Data Structures Assignment \#6\\
+\large attachments and source available at https://github.com/alexskc/cs303}
+\author{Aleksander Charatonik}
+\begin{document}
+
+\maketitle
+
+\section{}
+\begin{forest}
+  [76
+    [37
+      [26
+        [20]
+        [6]
+      ]
+      [32
+        [18]
+        [28]
+      ]
+    ]
+    [74
+      [39
+        [29]
+      ]
+      [66]
+    ]
+  ]
+\end{forest}
+
+\section{}
+Operator \(>\) would create a min queue rather than a max queue.
+\section{}
+\begin{verbatim}
+struct person
+{
+  std::string name;
+  std::vector<person *> dependants;
+
+  bool operator() (const person& left, const person& right) {
+    return left.dependants.size() < right.dependants.size();
+  }
+};
+\end{verbatim}
+\section{}
+\begin{forest}
+  [120
+    [* 50]
+    [70
+      [+ 30]
+      [40
+        [15
+          [\% 5]
+          [/ 10]
+        ]
+        [- 25]
+      ]
+    ]
+  ]
+\end{forest}
+\section{}
+If every symbol appeared equally frequantly, they'd all be on the bottom of the tree. Each letter would be encoded with the same number of bits, and we'd be iterating through a series of binary numbers, which would be something like ASCII.
+\section{}
+We can modify the existing main.cpp to do what we want. See the attached threeblindmice.cpp
+\end{document}

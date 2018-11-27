@@ -4,11 +4,11 @@
 #include <cmath>
 #include "Binary_Tree.h"
 
-std::string decode_morse(std::string morse, const Binary_Tree<char>& morse_tree) {
+std::string decode_morse(const std::string morse, const Binary_Tree<char>& morse_tree) {
 return "wut";
 }
 
-std::string encode_morse(std::string text, const Binary_Tree<char>& morse_tree) {
+std::string encode_morse(const std::string text, const std::string filename) {
 return "wut";
 }
 

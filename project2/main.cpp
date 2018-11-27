@@ -4,8 +4,24 @@
 #include <cmath>
 #include "Binary_Tree.h"
 
-std::string decode_morse(const std::string morse, const Binary_Tree<char>& morse_tree) {
-return "wut";
+std::string decode_morse(const std::string morse, Binary_Tree<char>& morse_tree) {
+  std::string decoded = "";
+  BTNode<char>* current = morse_tree.getRoot();
+  for(unsigned int i = 0; i < morse.length(); i++) {
+    switch(morse[i]) {
+      case '.':
+        current = current->left;
+        break;
+      case '_':
+        current = current->right;
+        break;
+      case ' ':
+        decoded += (*current).data;
+        current = morse_tree.getRoot();
+        break;
+    }
+  }
+  return decoded;
 }
 
 std::string encode_morse(const std::string text, const std::string filename) {
@@ -50,9 +66,8 @@ Binary_Tree<char> create_morse_tree(std::string filename) {
   std::sort(lines.begin(), lines.end(), sort_by_length);
   std::sort(lines.begin(), lines.end(), sort_by_length);
 
-  BTNode<char> root ('^');
-  BTNode<char>* rootPointer = &root;
-  BTNode<char>* current = &root;
+  BTNode<char>* root = new BTNode<char>('^');
+  BTNode<char>* current = root;
   for (unsigned int i = 0; i < lines.size(); i++) {
     if (lines[i].size() <= 3) {
       if (lines[i][1] == '.')
@@ -74,15 +89,15 @@ Binary_Tree<char> create_morse_tree(std::string filename) {
         current->right = new BTNode<char>(lines[i][0]);
       }
     }
-    current = rootPointer;
+    current = root;
   }
-  morse_tree.setRoot(rootPointer);
+  morse_tree.setRoot(root);
   return morse_tree;
 }
 
 int main() {
   Binary_Tree<char> morse_tree = create_morse_tree("morse.txt");
-  std::string encoded = encode_morse("thisisatest", "morse.txt");
+  std::string encoded = encode_morse("thisisthebesttestyouveeverseen", "morse.txt");
   std::string decoded = decode_morse(encoded, morse_tree);
   std::cout << encoded << " " << decoded << std::endl;
   return 0;
